@@ -17,10 +17,9 @@
 
 :root{
     --dark:#172018;
-    --green:#233025;
-    --light:#f6f2ea;
-    --gold:#d4c1a0;
-    --text:#e8e1d8;
+    --green:#1f2a20;
+    --gold:#d7c3a1;
+    --text:#ebe5db;
 }
 
 *{
@@ -34,9 +33,9 @@ html{
 }
 
 body{
-    font-family:'Manrope',sans-serif;
     background:var(--dark);
     color:white;
+    font-family:'Manrope',sans-serif;
     line-height:1.6;
 }
 
@@ -67,7 +66,7 @@ header{
 }
 
 .logo{
-    height:54px;
+    height:68px;
     width:auto;
 }
 
@@ -91,15 +90,14 @@ header{
     min-height:100vh;
     display:flex;
     align-items:center;
-    position:relative;
 
     background:
-    linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.65)),
+    linear-gradient(rgba(0,0,0,.25),rgba(0,0,0,.5)),
     url('./images/hero_2.png') center/cover no-repeat;
 }
 
 .hero-content{
-    max-width:720px;
+    max-width:700px;
 }
 
 .hero h1{
@@ -127,8 +125,8 @@ header{
 }
 
 .button:hover{
-    transform:translateY(-2px);
     background:white;
+    transform:translateY(-2px);
 }
 
 .section{
@@ -138,7 +136,7 @@ header{
 .section-title{
     font-family:'Cormorant Garamond',serif;
     font-size:72px;
-    margin-bottom:28px;
+    margin-bottom:30px;
 }
 
 .grid-2{
@@ -166,9 +164,14 @@ header{
 }
 
 .card{
-    background:#212b22;
+    background:#202920;
     border-radius:24px;
     overflow:hidden;
+    transition:.35s;
+}
+
+.card:hover{
+    transform:translateY(-6px);
 }
 
 .card img{
@@ -203,31 +206,30 @@ header{
     border-radius:22px;
     overflow:hidden;
     text-align:center;
-    padding-bottom:20px;
 }
 
 .feature img{
-    height:180px;
+    height:190px;
     object-fit:cover;
-    margin-bottom:16px;
 }
 
 .feature span{
-    padding:0 12px;
     display:block;
+    padding:18px;
+    color:white;
 }
 
 footer{
     background:#101510;
     padding:40px 0;
     text-align:center;
-    color:#b8b0a5;
+    color:#bdb5aa;
 }
 
 @media(max-width:900px){
 
 .hero h1{
-    font-size:64px;
+    font-size:68px;
 }
 
 .hero p{
@@ -249,7 +251,7 @@ footer{
 }
 
 .section-title{
-    font-size:48px;
+    font-size:50px;
 }
 
 }
@@ -447,9 +449,7 @@ SPA & Aqua
 <footer>
 
 <div class="container">
-
 RIVERROS’ © 2026 • Парк-отель на березі річки Рось
-
 </div>
 
 </footer>
