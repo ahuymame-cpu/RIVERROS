@@ -1,507 +1,419 @@
+```html
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RIVERROS’ — парк-отель на березі річки Рось</title>
-  <meta name="description" content="Парк-отель RIVERROS’ — преміальний заміський відпочинок, SPA, басейни, котеджі та ресторан на березі річки Рось за 140 км від Києва." />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<title>RIVERROS’ — Парк-отель на березі річки Рось</title>
 
-  <style>
-    :root {
-      --dark: #0f1712;
-      --green: #17281f;
-      --green-soft: #20382b;
-      --cream: #f3eadc;
-      --sand: #d7c3a3;
-      --white: #fffaf2;
-      --muted: #b9ad9c;
-    }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    html {
-      scroll-behavior: smooth;
-    }
+<style>
 
-    body {
-      font-family: 'Manrope', sans-serif;
-      background: var(--dark);
-      color: var(--white);
-      line-height: 1.6;
-    }
+:root{
+    --dark:#182019;
+    --green:#243126;
+    --light:#f7f3ed;
+    --gold:#d7c2a0;
+    --text:#e8e1d7;
+}
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-    .container {
-      width: min(1180px, 90%);
-      margin: 0 auto;
-    }
+body{
+    background:var(--dark);
+    color:white;
+    font-family:'Manrope',sans-serif;
+    line-height:1.6;
+}
 
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 20;
-      padding: 24px 0;
-      background: linear-gradient(to bottom, rgba(15, 23, 18, 0.85), rgba(15, 23, 18, 0));
-    }
+img{
+    width:100%;
+    display:block;
+}
 
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 24px;
-    }
+.container{
+    width:min(1180px,90%);
+    margin:auto;
+}
 
-    .logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 30px;
-      letter-spacing: 0.12em;
-      font-weight: 700;
-    }
+header{
+    position:fixed;
+    width:100%;
+    top:0;
+    z-index:100;
+    background:rgba(15,15,15,.45);
+    backdrop-filter:blur(12px);
+}
 
-    .nav-links {
-      display: flex;
-      gap: 28px;
-      font-size: 14px;
-      color: rgba(255, 250, 242, 0.82);
-    }
+.nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 0;
+}
 
-    .nav-links a:hover {
-      color: var(--sand);
-    }
+.logo{
+    height:50px;
+}
 
-    .hero {
-      min-height: 100vh;
-      position: relative;
-      display: flex;
-      align-items: center;
-      overflow: hidden;
-      background:
-        linear-gradient(rgba(15, 23, 18, 0.35), rgba(15, 23, 18, 0.95)),
-        url('https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1800&q=80') center/cover;
-    }
+.menu{
+    display:flex;
+    gap:30px;
+}
 
-    .hero::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at 70% 40%, rgba(215, 195, 163, 0.22), transparent 35%);
-      pointer-events: none;
-    }
+.menu a{
+    color:white;
+    text-decoration:none;
+    font-size:14px;
+}
 
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 760px;
-      padding-top: 80px;
-    }
+.hero{
+    min-height:100vh;
+    position:relative;
+    display:flex;
+    align-items:center;
+    background:
+    linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.6)),
+    url('./images/hero.png') center/cover;
+}
 
-    .eyebrow {
-      color: var(--sand);
-      text-transform: uppercase;
-      letter-spacing: 0.25em;
-      font-size: 13px;
-      font-weight: 600;
-      margin-bottom: 22px;
-    }
+.hero-content{
+    max-width:700px;
+}
 
-    h1, h2, h3 {
-      font-family: 'Cormorant Garamond', serif;
-      line-height: 1.05;
-    }
+.hero h1{
+    font-family:'Cormorant Garamond',serif;
+    font-size:110px;
+    line-height:.9;
+    margin-bottom:24px;
+}
 
-    h1 {
-      font-size: clamp(56px, 9vw, 120px);
-      margin-bottom: 24px;
-      font-weight: 700;
-    }
+.hero p{
+    font-size:22px;
+    color:var(--text);
+    margin-bottom:40px;
+}
 
-    .hero-text {
-      font-size: clamp(18px, 2vw, 24px);
-      max-width: 620px;
-      color: rgba(255, 250, 242, 0.86);
-      margin-bottom: 38px;
-    }
+.button{
+    display:inline-block;
+    padding:16px 34px;
+    background:var(--gold);
+    color:black;
+    text-decoration:none;
+    border-radius:50px;
+    font-weight:700;
+}
 
-    .buttons {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
+.section{
+    padding:110px 0;
+}
 
-    .btn {
-      padding: 15px 28px;
-      border-radius: 999px;
-      font-size: 14px;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      transition: 0.3s ease;
-    }
+.section-title{
+    font-family:'Cormorant Garamond',serif;
+    font-size:70px;
+    margin-bottom:30px;
+}
 
-    .btn-primary {
-      background: var(--sand);
-      color: var(--dark);
-    }
+.grid-2{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+    align-items:center;
+}
 
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      background: var(--cream);
-    }
+.text{
+    color:var(--text);
+    font-size:18px;
+}
 
-    .btn-secondary {
-      border: 1px solid rgba(255, 250, 242, 0.35);
-      color: var(--white);
-    }
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+    margin-top:50px;
+}
 
-    .btn-secondary:hover {
-      border-color: var(--sand);
-      color: var(--sand);
-    }
+.card{
+    background:#202920;
+    border-radius:24px;
+    overflow:hidden;
+}
 
-    section {
-      padding: 110px 0;
-    }
+.card-content{
+    padding:24px;
+}
 
-    .intro {
-      background: var(--dark);
-    }
+.card h3{
+    font-family:'Cormorant Garamond',serif;
+    font-size:34px;
+    margin-bottom:10px;
+}
 
-    .section-grid {
-      display: grid;
-      grid-template-columns: 0.85fr 1.15fr;
-      gap: 80px;
-      align-items: start;
-    }
+.card p{
+    color:var(--text);
+    font-size:15px;
+}
 
-    .section-title {
-      font-size: clamp(42px, 6vw, 72px);
-      margin-bottom: 24px;
-    }
+.big-image{
+    border-radius:30px;
+    overflow:hidden;
+}
 
-    .lead {
-      font-size: 21px;
-      color: rgba(255, 250, 242, 0.78);
-      max-width: 720px;
-    }
+.features{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+    margin-top:50px;
+}
 
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      margin-top: 56px;
-    }
+.feature{
+    background:#222d23;
+    padding:22px;
+    border-radius:20px;
+    text-align:center;
+}
 
-    .stat-card {
-      border: 1px solid rgba(255, 250, 242, 0.12);
-      background: rgba(255, 250, 242, 0.04);
-      padding: 34px 28px;
-      border-radius: 26px;
-    }
+.feature img{
+    height:180px;
+    object-fit:cover;
+    border-radius:14px;
+    margin-bottom:14px;
+}
 
-    .stat-number {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 54px;
-      color: var(--sand);
-      line-height: 1;
-      margin-bottom: 10px;
-    }
+footer{
+    padding:40px 0;
+    text-align:center;
+    color:#b8b1a5;
+    background:#101510;
+}
 
-    .stat-label {
-      color: rgba(255, 250, 242, 0.72);
-      font-size: 15px;
-    }
+@media(max-width:900px){
 
-    .cards-section {
-      background: var(--green);
-    }
+.hero h1{
+    font-size:64px;
+}
 
-    .cards-header {
-      display: flex;
-      justify-content: space-between;
-      gap: 40px;
-      align-items: end;
-      margin-bottom: 52px;
-    }
+.grid-2,
+.cards,
+.features{
+    grid-template-columns:1fr;
+}
 
-    .cards-header p {
-      max-width: 470px;
-      color: rgba(255, 250, 242, 0.72);
-    }
+.menu{
+    display:none;
+}
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-    }
+.section-title{
+    font-size:48px;
+}
 
-    .card {
-      min-height: 430px;
-      position: relative;
-      border-radius: 32px;
-      overflow: hidden;
-      background: #222;
-    }
+}
 
-    .card img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: 0.6s ease;
-      filter: brightness(0.72);
-    }
-
-    .card:hover img {
-      transform: scale(1.06);
-      filter: brightness(0.9);
-    }
-
-    .card-content {
-      position: absolute;
-      inset: auto 0 0 0;
-      padding: 34px;
-      background: linear-gradient(to top, rgba(15, 23, 18, 0.92), rgba(15, 23, 18, 0));
-    }
-
-    .card h3 {
-      font-size: 34px;
-      margin-bottom: 10px;
-    }
-
-    .card p {
-      color: rgba(255, 250, 242, 0.78);
-      font-size: 15px;
-    }
-
-    .amenities {
-      background: var(--dark);
-    }
-
-    .amenity-list {
-      margin-top: 50px;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-    }
-
-    .amenity {
-      border: 1px solid rgba(255, 250, 242, 0.12);
-      border-radius: 22px;
-      padding: 22px;
-      color: rgba(255, 250, 242, 0.82);
-      background: rgba(255, 250, 242, 0.035);
-    }
-
-    .cta {
-      background:
-        linear-gradient(rgba(15, 23, 18, 0.55), rgba(15, 23, 18, 0.9)),
-        url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1800&q=80') center/cover;
-      text-align: center;
-    }
-
-    .cta h2 {
-      font-size: clamp(44px, 7vw, 86px);
-      margin-bottom: 22px;
-    }
-
-    .cta p {
-      max-width: 640px;
-      margin: 0 auto 34px;
-      color: rgba(255, 250, 242, 0.8);
-      font-size: 20px;
-    }
-
-    footer {
-      background: #0a100d;
-      padding: 40px 0;
-      color: rgba(255, 250, 242, 0.56);
-      font-size: 14px;
-    }
-
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      gap: 24px;
-      flex-wrap: wrap;
-    }
-
-    @media (max-width: 900px) {
-      .nav-links {
-        display: none;
-      }
-
-      .section-grid,
-      .cards,
-      .stats,
-      .amenity-list {
-        grid-template-columns: 1fr;
-      }
-
-      .cards-header {
-        display: block;
-      }
-
-      .cards-header p {
-        margin-top: 16px;
-      }
-
-      section {
-        padding: 78px 0;
-      }
-
-      .card {
-        min-height: 360px;
-      }
-    }
-  </style>
+</style>
 </head>
+
 <body>
-  <header>
-    <div class="container nav">
-      <a href="#" class="logo">RIVERROS’</a>
-      <nav class="nav-links">
-        <a href="#about">Про комплекс</a>
-        <a href="#living">Проживання</a>
-        <a href="#spa">SPA & Aqua</a>
-        <a href="#restaurant">Ресторан</a>
-        <a href="#contacts">Контакти</a>
-      </nav>
-    </div>
-  </header>
 
-  <main>
-    <section class="hero">
-      <div class="container hero-content">
-        <div class="eyebrow">Парк-отель на березі річки Рось</div>
-        <h1>RIVERROS’</h1>
-        <p class="hero-text">Преміальний заміський відпочинок серед соснового лісу, SPA, басейни, приватні котеджі та ресторан лише за 140 км від Києва.</p>
-        <div class="buttons">
-          <a href="#contacts" class="btn btn-primary">Забронювати</a>
-          <a href="#about" class="btn btn-secondary">Дізнатись більше</a>
-        </div>
-      </div>
-    </section>
+<header>
+<div class="container nav">
 
-    <section class="intro" id="about">
-      <div class="container">
-        <div class="section-grid">
-          <div>
-            <div class="eyebrow">Про комплекс</div>
-            <h2 class="section-title">Місце для тиші, природи та відновлення</h2>
-          </div>
-          <p class="lead">RIVERROS’ — це унікальний заміський комплекс відпочинку, де первісна краса природи поєднується з преміальним комфортом. Простір створений для романтичного вікенду, сімейного відпочинку, корпоративних подій та повного перезавантаження у будь-яку пору року.</p>
-        </div>
+<img src="./images/LogoRR.png" class="logo">
 
-        <div class="stats">
-          <div class="stat-card">
-            <div class="stat-number">9</div>
-            <div class="stat-label">гектарів соснового лісу</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number">75</div>
-            <div class="stat-label">приватних котеджів з терасами</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number">1 км</div>
-            <div class="stat-label">пляжу вздовж річки Рось</div>
-          </div>
-        </div>
-      </div>
-    </section>
+<nav class="menu">
+<a href="#about">Про комплекс</a>
+<a href="#houses">Проживання</a>
+<a href="#spa">SPA</a>
+<a href="#restaurant">Ресторан</a>
+</nav>
 
-    <section class="cards-section" id="living">
-      <div class="container">
-        <div class="cards-header">
-          <div>
-            <div class="eyebrow">Відпочинок</div>
-            <h2 class="section-title">Все для вашого релаксу</h2>
-          </div>
-          <p>Приватність котеджів, простір води, ресторан, SPA та активності на природі — все в одному комплексі.</p>
-        </div>
+</div>
+</header>
 
-        <div class="cards">
-          <article class="card">
-            <img src="https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&w=900&q=80" alt="Сосновий ліс" />
-            <div class="card-content">
-              <h3>Територія</h3>
-              <p>9 гектарів соснового лісу, чисте повітря, прогулянки та берегова лінія річки Рось.</p>
-            </div>
-          </article>
+<section class="hero">
 
-          <article class="card">
-            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80" alt="Приватні котеджі" />
-            <div class="card-content">
-              <h3>Проживання</h3>
-              <p>75 відокремлених одноповерхових котеджів з терасами для романтичного або сімейного відпочинку.</p>
-            </div>
-          </article>
+<div class="container hero-content">
 
-          <article class="card" id="spa">
-            <img src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=900&q=80" alt="SPA та басейн" />
-            <div class="card-content">
-              <h3>SPA & Aqua</h3>
-              <p>Критий басейн 25 метрів, SPA-зона та відкритий літній басейн для сонячних днів.</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
+<h1>RIVERROS’</h1>
 
-    <section class="amenities" id="restaurant">
-      <div class="container">
-        <div class="section-grid">
-          <div>
-            <div class="eyebrow">Інфраструктура</div>
-            <h2 class="section-title">Ресторан, події та активності</h2>
-          </div>
-          <p class="lead">Двоповерховий ресторан сучасної кухні на 500 місць, лобі-бар, сцена, тераси з краєвидом, простори для корпоративів, весіль, тімбілдінгів та сімейних урочистостей.</p>
-        </div>
+<p>
+Ваш ідеальний загородній релакс та відновлення
+на березі легендарної річки Рось.
+</p>
 
-        <div class="amenity-list">
-          <div class="amenity">Ресторан на 500 місць</div>
-          <div class="amenity">Лобі-бар</div>
-          <div class="amenity">Тераси з краєвидом</div>
-          <div class="amenity">Сцена для подій</div>
-          <div class="amenity">Теніс</div>
-          <div class="amenity">Фітнес</div>
-          <div class="amenity">Йога</div>
-          <div class="amenity">Кіно просто неба</div>
-          <div class="amenity">Мангал-зони</div>
-          <div class="amenity">Дитячі майданчики</div>
-          <div class="amenity">Парк гойдалок</div>
-          <div class="amenity">Корпоративні простори</div>
-        </div>
-      </div>
-    </section>
+<a href="#about" class="button">Дізнатись більше</a>
 
-    <section class="cta" id="contacts">
-      <div class="container">
-        <h2>Відкрийте для себе RIVERROS’</h2>
-        <p>Вже зовсім скоро ми запросимо вас до простору, де ліс, вода та комфорт створюють ідеальний ритм відпочинку.</p>
-        <a href="mailto:hello@riverros.ua" class="btn btn-primary">Зв’язатися з нами</a>
-      </div>
-    </section>
-  </main>
+</div>
 
-  <footer>
-    <div class="container footer-inner">
-      <div>© 2026 RIVERROS’. Park Hotel.</div>
-      <div>140 км від Києва · Берег річки Рось</div>
-    </div>
-  </footer>
+</section>
+
+<section class="section" id="about">
+
+<div class="container grid-2">
+
+<div>
+
+<h2 class="section-title">
+Природа та комфорт
+</h2>
+
+<p class="text">
+RIVERROS’ — сучасний парк-отель для відпочинку серед соснового лісу.
+9 гектарів природи, приватні котеджі, SPA, басейни та берегова лінія річки Рось створюють простір для спокійного сімейного або романтичного відпочинку.
+</p>
+
+</div>
+
+<div class="big-image">
+<img src="./images/Вся_територія.jpg">
+</div>
+
+</div>
+
+</section>
+
+<section class="section" id="houses">
+
+<div class="container">
+
+<h2 class="section-title">
+Проживання
+</h2>
+
+<div class="cards">
+
+<div class="card">
+
+<img src="./images/House.jpg">
+
+<div class="card-content">
+
+<h3>Котеджі</h3>
+
+<p>
+75 приватних одноповерхових будиночків з терасами для максимального комфорту та приватності.
+</p>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<img src="./images/House_2.jpg">
+
+<div class="card-content">
+
+<h3>Сімейний відпочинок</h3>
+
+<p>
+Просторі будинки для комфортного сімейного відпочинку серед природи.
+</p>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<img src="./images/family.jpg">
+
+<div class="card-content">
+
+<h3>Атмосфера</h3>
+
+<p>
+Тиша соснового лісу, свіже повітря та затишок у будь-яку пору року.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section" id="spa">
+
+<div class="container grid-2">
+
+<div class="big-image">
+<img src="./images/Indoor_SPA.png">
+</div>
+
+<div>
+
+<h2 class="section-title">
+SPA & Aqua
+</h2>
+
+<p class="text">
+Критий басейн 25 метрів, SPA-зона та відкритий літній басейн створені для повного відновлення та релаксу.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section" id="restaurant">
+
+<div class="container">
+
+<h2 class="section-title">
+Інфраструктура
+</h2>
+
+<div class="features">
+
+<div class="feature">
+<img src="./images/Beach.jpg">
+Пляж та берегова лінія
+</div>
+
+<div class="feature">
+<img src="./images/Kid.png">
+Дитячі майданчики
+</div>
+
+<div class="feature">
+<img src="./images/Rive.jpg">
+Прогулянкові зони
+</div>
+
+<div class="feature">
+<img src="./images/Car.jpg">
+Зручний доїзд
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<div class="container">
+
+RIVERROS’ © 2026 • Парк-отель на березі річки Рось
+
+</div>
+
+</footer>
+
 </body>
 </html>
+```
