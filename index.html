@@ -1,6 +1,7 @@
 ```html
 <!DOCTYPE html>
 <html lang="uk">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,11 +16,11 @@
 <style>
 
 :root{
-    --dark:#182019;
-    --green:#243126;
-    --light:#f7f3ed;
-    --gold:#d7c2a0;
-    --text:#e8e1d7;
+    --dark:#172018;
+    --green:#233025;
+    --light:#f6f2ea;
+    --gold:#d4c1a0;
+    --text:#e8e1d8;
 }
 
 *{
@@ -28,10 +29,14 @@
     box-sizing:border-box;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
+    font-family:'Manrope',sans-serif;
     background:var(--dark);
     color:white;
-    font-family:'Manrope',sans-serif;
     line-height:1.6;
 }
 
@@ -50,8 +55,8 @@ header{
     width:100%;
     top:0;
     z-index:100;
-    background:rgba(15,15,15,.45);
-    backdrop-filter:blur(12px);
+    background:rgba(0,0,0,.35);
+    backdrop-filter:blur(10px);
 }
 
 .nav{
@@ -62,43 +67,50 @@ header{
 }
 
 .logo{
-    height:50px;
+    height:54px;
+    width:auto;
 }
 
 .menu{
     display:flex;
-    gap:30px;
+    gap:32px;
 }
 
 .menu a{
     color:white;
     text-decoration:none;
     font-size:14px;
+    transition:.3s;
+}
+
+.menu a:hover{
+    color:var(--gold);
 }
 
 .hero{
     min-height:100vh;
-    position:relative;
     display:flex;
     align-items:center;
+    position:relative;
+
     background:
-    linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.6)),
-    url('./images/hero.png') center/cover;
+    linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.65)),
+    url('./images/hero_2.png') center/cover no-repeat;
 }
 
 .hero-content{
-    max-width:700px;
+    max-width:720px;
 }
 
 .hero h1{
     font-family:'Cormorant Garamond',serif;
-    font-size:110px;
+    font-size:120px;
     line-height:.9;
     margin-bottom:24px;
 }
 
 .hero p{
-    font-size:22px;
+    font-size:24px;
     color:var(--text);
     margin-bottom:40px;
 }
@@ -106,11 +118,17 @@ header{
 .button{
     display:inline-block;
     padding:16px 34px;
+    border-radius:50px;
     background:var(--gold);
     color:black;
     text-decoration:none;
-    border-radius:50px;
     font-weight:700;
+    transition:.3s;
+}
+
+.button:hover{
+    transform:translateY(-2px);
+    background:white;
 }
 
 .section{
@@ -119,14 +137,14 @@ header{
 
 .section-title{
     font-family:'Cormorant Garamond',serif;
-    font-size:70px;
-    margin-bottom:30px;
+    font-size:72px;
+    margin-bottom:28px;
 }
 
 .grid-2{
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:50px;
+    gap:60px;
     align-items:center;
 }
 
@@ -135,17 +153,27 @@ header{
     font-size:18px;
 }
 
+.big-image{
+    border-radius:28px;
+    overflow:hidden;
+}
+
 .cards{
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:25px;
+    gap:24px;
     margin-top:50px;
 }
 
 .card{
-    background:#202920;
+    background:#212b22;
     border-radius:24px;
     overflow:hidden;
+}
+
+.card img{
+    height:260px;
+    object-fit:cover;
 }
 
 .card-content{
@@ -163,11 +191,6 @@ header{
     font-size:15px;
 }
 
-.big-image{
-    border-radius:30px;
-    overflow:hidden;
-}
-
 .features{
     display:grid;
     grid-template-columns:repeat(4,1fr);
@@ -176,30 +199,39 @@ header{
 }
 
 .feature{
-    background:#222d23;
-    padding:22px;
-    border-radius:20px;
+    background:#202920;
+    border-radius:22px;
+    overflow:hidden;
     text-align:center;
+    padding-bottom:20px;
 }
 
 .feature img{
     height:180px;
     object-fit:cover;
-    border-radius:14px;
-    margin-bottom:14px;
+    margin-bottom:16px;
+}
+
+.feature span{
+    padding:0 12px;
+    display:block;
 }
 
 footer{
+    background:#101510;
     padding:40px 0;
     text-align:center;
-    color:#b8b1a5;
-    background:#101510;
+    color:#b8b0a5;
 }
 
 @media(max-width:900px){
 
 .hero h1{
     font-size:64px;
+}
+
+.hero p{
+    font-size:18px;
 }
 
 .grid-2,
@@ -210,6 +242,10 @@ footer{
 
 .menu{
     display:none;
+}
+
+.section{
+    padding:80px 0;
 }
 
 .section-title{
@@ -224,6 +260,7 @@ footer{
 <body>
 
 <header>
+
 <div class="container nav">
 
 <img src="./images/LogoRR.png" class="logo">
@@ -231,11 +268,12 @@ footer{
 <nav class="menu">
 <a href="#about">Про комплекс</a>
 <a href="#houses">Проживання</a>
-<a href="#spa">SPA</a>
-<a href="#restaurant">Ресторан</a>
+<a href="#spa">SPA & Aqua</a>
+<a href="#infra">Інфраструктура</a>
 </nav>
 
 </div>
+
 </header>
 
 <section class="hero">
@@ -249,7 +287,9 @@ footer{
 на березі легендарної річки Рось.
 </p>
 
-<a href="#about" class="button">Дізнатись більше</a>
+<a href="#about" class="button">
+Дізнатись більше
+</a>
 
 </div>
 
@@ -266,14 +306,14 @@ footer{
 </h2>
 
 <p class="text">
-RIVERROS’ — сучасний парк-отель для відпочинку серед соснового лісу.
-9 гектарів природи, приватні котеджі, SPA, басейни та берегова лінія річки Рось створюють простір для спокійного сімейного або романтичного відпочинку.
+RIVERROS’ — сучасний парк-отель серед соснового лісу, створений для спокійного відпочинку та повного перезавантаження.
+Комплекс поєднує приватні котеджі, SPA, басейни, пляжну зону та природну атмосферу берегів річки Рось.
 </p>
 
 </div>
 
 <div class="big-image">
-<img src="./images/Вся_територія.jpg">
+<img src="./images/Vsia_Terytoria.jpg">
 </div>
 
 </div>
@@ -299,7 +339,7 @@ RIVERROS’ — сучасний парк-отель для відпочинку
 <h3>Котеджі</h3>
 
 <p>
-75 приватних одноповерхових будиночків з терасами для максимального комфорту та приватності.
+75 приватних будиночків з терасами для комфортного сімейного або романтичного відпочинку.
 </p>
 
 </div>
@@ -315,7 +355,7 @@ RIVERROS’ — сучасний парк-отель для відпочинку
 <h3>Сімейний відпочинок</h3>
 
 <p>
-Просторі будинки для комфортного сімейного відпочинку серед природи.
+Просторі будинки серед природи для затишного відпочинку в будь-яку пору року.
 </p>
 
 </div>
@@ -331,7 +371,7 @@ RIVERROS’ — сучасний парк-отель для відпочинку
 <h3>Атмосфера</h3>
 
 <p>
-Тиша соснового лісу, свіже повітря та затишок у будь-яку пору року.
+Тиша лісу, свіже повітря та максимальна приватність для повного релаксу.
 </p>
 
 </div>
@@ -359,7 +399,7 @@ SPA & Aqua
 </h2>
 
 <p class="text">
-Критий басейн 25 метрів, SPA-зона та відкритий літній басейн створені для повного відновлення та релаксу.
+Критий 25-метровий басейн, SPA-зона та відкритий літній басейн створені для гармонійного відновлення та відпочинку.
 </p>
 
 </div>
@@ -368,7 +408,7 @@ SPA & Aqua
 
 </section>
 
-<section class="section" id="restaurant">
+<section class="section" id="infra">
 
 <div class="container">
 
@@ -380,22 +420,22 @@ SPA & Aqua
 
 <div class="feature">
 <img src="./images/Beach.jpg">
-Пляж та берегова лінія
+<span>Пляж та берегова лінія</span>
 </div>
 
 <div class="feature">
 <img src="./images/Kid.png">
-Дитячі майданчики
+<span>Дитячі майданчики</span>
 </div>
 
 <div class="feature">
 <img src="./images/Rive.jpg">
-Прогулянкові зони
+<span>Прогулянкові зони</span>
 </div>
 
 <div class="feature">
 <img src="./images/Car.jpg">
-Зручний доїзд
+<span>Зручний доїзд</span>
 </div>
 
 </div>
