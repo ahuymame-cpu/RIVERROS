@@ -18,6 +18,7 @@
       --gold: #d7c3a1;
       --text: #ebe5db;
       --muted: #bdb5aa;
+      --black: #101510;
     }
 
     * {
@@ -40,6 +41,10 @@
     img {
       width: 100%;
       display: block;
+    }
+
+    a {
+      color: inherit;
     }
 
     .container {
@@ -72,7 +77,7 @@
 
     .menu {
       display: flex;
-      gap: 28px;
+      gap: 26px;
     }
 
     .menu a {
@@ -174,7 +179,7 @@
       height: 380px;
       border-radius: 28px;
       overflow: hidden;
-      background: #101510;
+      background: var(--black);
     }
 
     .image-box img {
@@ -197,50 +202,88 @@
     }
 
     .card:hover {
-      transform: translateY(-6px);
+      transform: translateY(-4px);
     }
 
-    .hover-gallery {
+    .gallery {
       position: relative;
       height: 270px;
       overflow: hidden;
-      background: #101510;
+      background: var(--black);
     }
 
-    .hover-gallery img {
+    .gallery.large {
+      height: 380px;
+      border-radius: 28px;
+    }
+
+    .gallery img {
       position: absolute;
       inset: 0;
       height: 100%;
       object-fit: cover;
       opacity: 0;
+      transition: opacity 0.35s ease;
     }
 
-    .hover-gallery img:first-child {
+    .gallery img.active {
       opacity: 1;
     }
 
-    .card:hover .gallery-three img {
-      opacity: 0;
+    .gallery-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.45);
+      background: rgba(0, 0, 0, 0.45);
+      color: white;
+      font-size: 26px;
+      line-height: 1;
+      cursor: pointer;
+      z-index: 5;
+      transition: 0.25s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .card:hover .gallery-three img:nth-child(1) {
-      animation: galleryThree 9s infinite 0s;
+    .gallery-btn:hover {
+      background: var(--gold);
+      color: black;
+      border-color: var(--gold);
     }
 
-    .card:hover .gallery-three img:nth-child(2) {
-      animation: galleryThree 9s infinite 3s;
+    .gallery-btn.prev {
+      left: 16px;
     }
 
-    .card:hover .gallery-three img:nth-child(3) {
-      animation: galleryThree 9s infinite 6s;
+    .gallery-btn.next {
+      right: 16px;
     }
 
-    @keyframes galleryThree {
-      0% { opacity: 0; }
-      8% { opacity: 1; }
-      33% { opacity: 1; }
-      41% { opacity: 0; }
-      100% { opacity: 0; }
+    .gallery-dots {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 14px;
+      display: flex;
+      justify-content: center;
+      gap: 7px;
+      z-index: 5;
+    }
+
+    .gallery-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.45);
+    }
+
+    .gallery-dot.active {
+      background: var(--gold);
     }
 
     .card-content {
@@ -258,55 +301,82 @@
       font-size: 15px;
     }
 
-    .spa-gallery {
-      position: relative;
+    .restaurant-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .restaurant-image {
       height: 380px;
       border-radius: 28px;
       overflow: hidden;
-      background: #101510;
+      background: var(--black);
     }
 
-    .spa-gallery img {
-      position: absolute;
-      inset: 0;
+    .restaurant-image img {
       height: 100%;
       object-fit: cover;
-      opacity: 0;
     }
 
-    .spa-gallery img:first-child {
-      opacity: 1;
-    }
-
-    .spa-gallery:hover img {
-      opacity: 0;
-    }
-
-    .spa-gallery:hover img:nth-child(1) {
-      animation: galleryTwo 6s infinite 0s;
-    }
-
-    .spa-gallery:hover img:nth-child(2) {
-      animation: galleryTwo 6s infinite 3s;
-    }
-
-    @keyframes galleryTwo {
-      0% { opacity: 0; }
-      10% { opacity: 1; }
-      50% { opacity: 1; }
-      60% { opacity: 0; }
-      100% { opacity: 0; }
-    }
-
-    .restaurant-block {
+    .contact-card {
       background: var(--green);
       border-radius: 30px;
-      padding: 48px;
-      max-width: 900px;
+      padding: 46px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .contact-info h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 42px;
+      margin-bottom: 18px;
+    }
+
+    .contact-info p {
+      color: var(--text);
+      font-size: 17px;
+      margin-bottom: 10px;
+    }
+
+    .contact-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px 24px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+      transition: 0.25s ease;
+    }
+
+    .button.primary {
+      background: var(--gold);
+      color: black;
+    }
+
+    .button.secondary {
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      color: white;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
     }
 
     footer {
-      background: #101510;
+      background: var(--black);
       padding: 40px 0;
       text-align: center;
       color: var(--muted);
@@ -322,7 +392,9 @@
       }
 
       .grid-2,
-      .cards {
+      .cards,
+      .restaurant-box,
+      .contact-card {
         grid-template-columns: 1fr;
       }
 
@@ -331,12 +403,17 @@
       }
 
       .image-box,
-      .spa-gallery {
+      .gallery.large,
+      .restaurant-image {
         height: 260px;
       }
 
-      .restaurant-block {
+      .contact-card {
         padding: 28px;
+      }
+
+      .contact-actions {
+        justify-content: flex-start;
       }
     }
   </style>
@@ -344,213 +421,301 @@
 
 <body>
 
-  <header>
-    <div class="container nav">
-      <img src="./images/LogoRR.png" class="logo" alt="RIVERROS logo">
+<header>
+  <div class="container nav">
+    <img src="./images/LogoRR.png" class="logo" alt="RIVERROS logo">
 
-      <nav class="menu">
-        <a href="#about">Про комплекс</a>
-        <a href="#territory">Територія</a>
-        <a href="#living">Проживання</a>
-        <a href="#spa">SPA & Aqua</a>
-        <a href="#restaurant">Ресторан</a>
-      </nav>
+    <nav class="menu">
+      <a href="#about">Про комплекс</a>
+      <a href="#territory">Територія</a>
+      <a href="#living">Проживання</a>
+      <a href="#spa">SPA & Aqua</a>
+      <a href="#restaurant">Ресторан</a>
+      <a href="#contacts">Контакти</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero" id="top">
+    <div class="container">
+
+      <div class="video-wrapper">
+        <iframe
+          src="https://www.youtube.com/embed/e8ZcFb1JLso"
+          title="RIVERROS’ video presentation"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      </div>
+
+      <div class="hero-text">
+        <h1>Парк-отель RIVERROS’</h1>
+
+        <h2>
+          Ваш ідеальний загородній релакс та відновлення на березі легендарної річки Рось.
+        </h2>
+
+        <p>
+          Шукаєте місце, де можна втекти від міської метушні, відновити сили та побути наодинці з природою?
+        </p>
+
+        <p>
+          Вже зовсім скоро ми вас запросимо до нашого унікального заміського комплексу відпочинку,
+          розташованого всього за 140 кілометрів від Києва.
+        </p>
+
+        <p>
+          Ми об'єднали тишу, первісну красу природи та преміальний комфорт,
+          щоб подарувати вам незабутній відпочинок у будь-яку пору року.
+        </p>
+      </div>
+
     </div>
-  </header>
+  </section>
 
-  <main>
+  <section class="section" id="about">
+    <div class="container grid-2">
 
-    <section class="hero" id="top">
-      <div class="container">
+      <div>
+        <h2 class="section-title">Про комплекс</h2>
 
-        <div class="video-wrapper">
-          <iframe
-            src="https://www.youtube.com/embed/e8ZcFb1JLso"
-            title="RIVERROS’ video presentation"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen>
-          </iframe>
-        </div>
-
-        <div class="hero-text">
-          <h1>Парк-отель RIVERROS’</h1>
-
-          <h2>
-            Ваш ідеальний загородній релакс та відновлення на березі легендарної річки Рось.
-          </h2>
-
+        <div class="text">
           <p>
-            Шукаєте місце, де можна втекти від міської метушні, відновити сили та побути наодинці з природою?
+            RIVERROS’ — сучасний парк-отель серед соснового лісу, створений для спокійного відпочинку,
+            приватності та повного перезавантаження.
           </p>
 
           <p>
-            Вже зовсім скоро ми вас запросимо до нашого унікального заміського комплексу відпочинку,
-            розташованого всього за 140 кілометрів від Києва.
-          </p>
-
-          <p>
-            Ми об'єднали тишу, первісну красу природи та преміальний комфорт,
-            щоб подарувати вам незабутній відпочинок у будь-яку пору року.
+            Комплекс поєднує природну атмосферу берегів річки Рось, приватні котеджі,
+            пляжну зону, SPA, басейни, ресторан та простори для подій.
           </p>
         </div>
-
       </div>
-    </section>
 
-    <section class="section" id="about">
-      <div class="container grid-2">
+      <div class="image-box">
+        <img src="./images/House_5.png" alt="RIVERROS комплекс">
+      </div>
 
-        <div>
-          <h2 class="section-title">Про комплекс</h2>
+    </div>
+  </section>
 
-          <div class="text">
+  <section class="section" id="territory">
+    <div class="container grid-2">
+
+      <div class="image-box">
+        <img src="./images/Vsia_Terytoria.jpg" alt="Територія RIVERROS">
+      </div>
+
+      <div>
+        <h2 class="section-title">Територія</h2>
+
+        <div class="text">
+          <ul>
+            <li>9 гектарів соснового лісу — чисте, цілюще повітря та прохолода вікових дерев.</li>
+            <li>Пляж протяжністю 1 км та 7 гектарів берегової лінії вздовж мальовничої річки Рось.</li>
+            <li>Облаштований простір для комфортного відпочинку, прогулянок та відновлення.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section" id="living">
+    <div class="container">
+
+      <h2 class="section-title">Проживання</h2>
+
+      <div class="cards">
+
+        <article class="card">
+          <div class="gallery" data-gallery>
+            <img src="./images/Kotedzi_1.png" class="active" alt="Приватні котеджі RIVERROS">
+            <img src="./images/Kotedzi_2.png" alt="Приватні котеджі RIVERROS">
+            <img src="./images/Kotedzi_3.png" alt="Приватні котеджі RIVERROS">
+
+            <button class="gallery-btn prev" type="button" data-prev aria-label="Попереднє фото">‹</button>
+            <button class="gallery-btn next" type="button" data-next aria-label="Наступне фото">›</button>
+            <div class="gallery-dots"></div>
+          </div>
+
+          <div class="card-content">
+            <h3>Приватні котеджі</h3>
             <p>
-              RIVERROS’ — сучасний парк-отель серед соснового лісу, створений для спокійного відпочинку,
-              приватності та повного перезавантаження.
+              75 відокремлених одноповерхових будиночків з терасами для романтичного або сімейного відпочинку.
             </p>
+          </div>
+        </article>
 
+        <article class="card">
+          <div class="gallery" data-gallery>
+            <img src="./images/Korpus_1.png" class="active" alt="Центральний корпус RIVERROS">
+            <img src="./images/Korpus_2.png" alt="Центральний корпус RIVERROS">
+            <img src="./images/Korpus_3.png" alt="Центральний корпус RIVERROS">
+
+            <button class="gallery-btn prev" type="button" data-prev aria-label="Попереднє фото">‹</button>
+            <button class="gallery-btn next" type="button" data-next aria-label="Наступне фото">›</button>
+            <div class="gallery-dots"></div>
+          </div>
+
+          <div class="card-content">
+            <h3>Центральний корпус</h3>
             <p>
-              Комплекс поєднує природну атмосферу берегів річки Рось, приватні котеджі,
-              пляжну зону, SPA, басейни, ресторан та простори для подій.
+              Сучасний простір, де на гостей чекають басейн, SPA-зона, ресторан, лобі-бар та зони відпочинку.
             </p>
           </div>
-        </div>
+        </article>
 
-        <div class="image-box">
-          <img src="./images/House_5.png" alt="RIVERROS комплекс">
-        </div>
+        <article class="card">
+          <div class="gallery" data-gallery>
+            <img src="./images/Atmosphera_1.png" class="active" alt="Атмосфера RIVERROS">
+            <img src="./images/Atmosphera_2.png" alt="Атмосфера RIVERROS">
+            <img src="./images/Atmosphera_3.png" alt="Атмосфера RIVERROS">
 
-      </div>
-    </section>
-
-    <section class="section" id="territory">
-      <div class="container grid-2">
-
-        <div class="image-box">
-          <img src="./images/Vsia_Terytoria.jpg" alt="Територія RIVERROS">
-        </div>
-
-        <div>
-          <h2 class="section-title">Територія</h2>
-
-          <div class="text">
-            <ul>
-              <li>9 гектарів соснового лісу — чисте, цілюще повітря та прохолода вікових дерев.</li>
-              <li>Пляж протяжністю 1 км та 7 гектарів берегової лінії вздовж мальовничої річки Рось.</li>
-              <li>Облаштований простір для комфортного відпочинку, прогулянок та відновлення.</li>
-            </ul>
+            <button class="gallery-btn prev" type="button" data-prev aria-label="Попереднє фото">‹</button>
+            <button class="gallery-btn next" type="button" data-next aria-label="Наступне фото">›</button>
+            <div class="gallery-dots"></div>
           </div>
-        </div>
 
-      </div>
-    </section>
-
-    <section class="section" id="living">
-      <div class="container">
-
-        <h2 class="section-title">Проживання</h2>
-
-        <div class="cards">
-
-          <article class="card">
-            <div class="hover-gallery gallery-three">
-              <img src="./images/Kotedzi_1.png" alt="Приватні котеджі RIVERROS">
-              <img src="./images/Kotedzi_2.png" alt="Приватні котеджі RIVERROS">
-              <img src="./images/Kotedzi_3.png" alt="Приватні котеджі RIVERROS">
-            </div>
-
-            <div class="card-content">
-              <h3>Приватні котеджі</h3>
-              <p>
-                75 відокремлених одноповерхових будиночків з терасами для романтичного або сімейного відпочинку.
-              </p>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="hover-gallery gallery-three">
-              <img src="./images/Korpus_1.png" alt="Центральний корпус RIVERROS">
-              <img src="./images/Korpus_2.png" alt="Центральний корпус RIVERROS">
-              <img src="./images/Korpus_3.png" alt="Центральний корпус RIVERROS">
-            </div>
-
-            <div class="card-content">
-              <h3>Центральний корпус</h3>
-              <p>
-                Сучасний простір, де на гостей чекають басейн, SPA-зона, ресторан, лобі-бар та зони відпочинку.
-              </p>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="hover-gallery gallery-three">
-              <img src="./images/Atmosphera_1.png" alt="Атмосфера RIVERROS">
-              <img src="./images/Atmosphera_2.png" alt="Атмосфера RIVERROS">
-              <img src="./images/Atmosphera_3.png" alt="Атмосфера RIVERROS">
-            </div>
-
-            <div class="card-content">
-              <h3>Атмосфера</h3>
-              <p>
-                Тиша лісу, свіже повітря, приватність і простір для відновлення у будь-яку пору року.
-              </p>
-            </div>
-          </article>
-
-        </div>
-
-      </div>
-    </section>
-
-    <section class="section" id="spa">
-      <div class="container grid-2">
-
-        <div class="spa-gallery">
-          <img src="./images/Spa_1.jpg" alt="SPA RIVERROS">
-          <img src="./images/Spa_2.png" alt="SPA RIVERROS">
-        </div>
-
-        <div>
-          <h2 class="section-title">Аква та SPA</h2>
-
-          <div class="text">
-            <ul>
-              <li>Центральний корпус — сучасний простір з критим басейном 25 метрів та розкішною SPA-зоною.</li>
-              <li>Відкритий літній басейн 25 метрів — простора аквазона просто неба для сонячних днів.</li>
-              <li>Місце для ранкового плавання, денного відпочинку та вечірнього релаксу.</li>
-            </ul>
+          <div class="card-content">
+            <h3>Атмосфера</h3>
+            <p>
+              Тиша лісу, свіже повітря, приватність і простір для відновлення у будь-яку пору року.
+            </p>
           </div>
-        </div>
+        </article>
 
       </div>
-    </section>
 
-    <section class="section" id="restaurant">
-      <div class="container">
+    </div>
+  </section>
 
+  <section class="section" id="spa">
+    <div class="container grid-2">
+
+      <div class="gallery large" data-gallery>
+        <img src="./images/Spa_1.jpg" class="active" alt="SPA RIVERROS">
+        <img src="./images/Spa_2.png" alt="SPA RIVERROS">
+
+        <button class="gallery-btn prev" type="button" data-prev aria-label="Попереднє фото">‹</button>
+        <button class="gallery-btn next" type="button" data-next aria-label="Наступне фото">›</button>
+        <div class="gallery-dots"></div>
+      </div>
+
+      <div>
+        <h2 class="section-title">Аква та SPA</h2>
+
+        <div class="text">
+          <ul>
+            <li>Центральний корпус — сучасний простір з критим басейном 25 метрів та розкішною SPA-зоною.</li>
+            <li>Відкритий літній басейн 25 метрів — простора аквазона просто неба для сонячних днів.</li>
+            <li>Місце для ранкового плавання, денного відпочинку та вечірнього релаксу.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section" id="restaurant">
+    <div class="container restaurant-box">
+
+      <div>
         <h2 class="section-title">Ресторан</h2>
 
-        <div class="restaurant-block">
-          <div class="text">
-            <p>
-              Концептуальний двоповерховий ресторан сучасної кухні на 500 місць.
-              Лобі-бар, сцена і тераси з краєвидом на ліс та річку роблять це місце
-              популярною активною зоною для всіх відвідувачів парк-отелю.
-            </p>
-          </div>
+        <div class="text">
+          <p>
+            Концептуальний двоповерховий ресторан сучасної кухні на 500 місць.
+            Лобі-бар, сцена і тераси з краєвидом на ліс та річку роблять це місце
+            популярною активною зоною для всіх відвідувачів парк-отелю.
+          </p>
+        </div>
+      </div>
+
+      <div class="restaurant-image">
+        <img src="./images/Restoran.png" alt="Ресторан RIVERROS">
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section" id="contacts">
+    <div class="container">
+
+      <h2 class="section-title">Контакти</h2>
+
+      <div class="contact-card">
+
+        <div class="contact-info">
+          <h3>ТОВ «РІВЕРРОС»</h3>
+          <p>Звенігородський район, Черкаська область</p>
+          <p>Телефон: <a href="tel:+380770013001">+38 077 001 3 001</a></p>
+        </div>
+
+        <div class="contact-actions">
+          <a class="button primary" href="tel:+380770013001">Зателефонувати</a>
+          <a class="button secondary" href="https://maps.app.goo.gl/c8R5kVRzixTi3vk58" target="_blank" rel="noopener">
+            Відкрити на Google Maps
+          </a>
         </div>
 
       </div>
-    </section>
 
-  </main>
-
-  <footer>
-    <div class="container">
-      RIVERROS’ © 2026 • Парк-отель на березі річки Рось
     </div>
-  </footer>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    RIVERROS’ © 2026 • Парк-отель на березі річки Рось
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('[data-gallery]').forEach(function(gallery) {
+    const images = Array.from(gallery.querySelectorAll('img'));
+    const prevButton = gallery.querySelector('[data-prev]');
+    const nextButton = gallery.querySelector('[data-next]');
+    const dotsContainer = gallery.querySelector('.gallery-dots');
+
+    let currentIndex = 0;
+
+    images.forEach(function(_, index) {
+      const dot = document.createElement('span');
+      dot.className = 'gallery-dot';
+      if (index === 0) dot.classList.add('active');
+      dotsContainer.appendChild(dot);
+    });
+
+    const dots = Array.from(dotsContainer.querySelectorAll('.gallery-dot'));
+
+    function showImage(index) {
+      currentIndex = (index + images.length) % images.length;
+
+      images.forEach(function(image, imageIndex) {
+        image.classList.toggle('active', imageIndex === currentIndex);
+      });
+
+      dots.forEach(function(dot, dotIndex) {
+        dot.classList.toggle('active', dotIndex === currentIndex);
+      });
+    }
+
+    prevButton.addEventListener('click', function(event) {
+      event.preventDefault();
+      showImage(currentIndex - 1);
+    });
+
+    nextButton.addEventListener('click', function(event) {
+      event.preventDefault();
+      showImage(currentIndex + 1);
+    });
+  });
+</script>
 
 </body>
 </html>
