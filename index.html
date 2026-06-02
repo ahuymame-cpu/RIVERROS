@@ -88,8 +88,7 @@ header{
 }
 
 .hero{
-    padding:130px 0 80px;
-    background:linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,0));
+    padding:130px 0 90px;
 }
 
 .video-wrapper{
@@ -110,14 +109,13 @@ header{
 }
 
 .hero-text{
-    max-width:860px;
-    margin:56px auto 0;
-    text-align:center;
+    max-width:760px;
+    margin-top:56px;
 }
 
 .hero-text h1{
     font-family:'Cormorant Garamond',serif;
-    font-size:92px;
+    font-size:86px;
     line-height:.95;
     margin-bottom:24px;
 }
@@ -136,7 +134,7 @@ header{
 }
 
 .section{
-    padding:100px 0;
+    padding:95px 0;
 }
 
 .section-title{
@@ -165,40 +163,22 @@ header{
 .text ul{
     margin-top:22px;
     padding-left:20px;
-    color:var(--text);
 }
 
 .text li{
     margin-bottom:12px;
 }
 
-.slider{
-    position:relative;
+.image-box{
     height:360px;
     border-radius:28px;
     overflow:hidden;
     background:#101510;
 }
 
-.slider img{
-    position:absolute;
-    inset:0;
+.image-box img{
     height:100%;
     object-fit:cover;
-    opacity:0;
-    animation:slideShow 9s infinite;
-}
-
-.slider img:nth-child(1){animation-delay:0s;}
-.slider img:nth-child(2){animation-delay:3s;}
-.slider img:nth-child(3){animation-delay:6s;}
-
-@keyframes slideShow{
-    0%{opacity:0;}
-    8%{opacity:1;}
-    33%{opacity:1;}
-    41%{opacity:0;}
-    100%{opacity:0;}
 }
 
 .cards{
@@ -219,24 +199,48 @@ header{
     transform:translateY(-6px);
 }
 
-.card-slider{
+.hover-gallery{
     position:relative;
-    height:260px;
+    height:270px;
     overflow:hidden;
+    background:#101510;
 }
 
-.card-slider img{
+.hover-gallery img{
     position:absolute;
     inset:0;
     height:100%;
     object-fit:cover;
     opacity:0;
-    animation:slideShow 9s infinite;
+    transition:opacity .45s ease;
 }
 
-.card-slider img:nth-child(1){animation-delay:0s;}
-.card-slider img:nth-child(2){animation-delay:3s;}
-.card-slider img:nth-child(3){animation-delay:6s;}
+.hover-gallery img:first-child{
+    opacity:1;
+}
+
+.card:hover .hover-gallery img:nth-child(1),
+.spa-gallery:hover img:nth-child(1){
+    opacity:0;
+}
+
+.card:hover .hover-gallery img:nth-child(2),
+.spa-gallery:hover img:nth-child(2){
+    animation:hoverSlider 6s infinite;
+}
+
+.card:hover .hover-gallery img:nth-child(3),
+.spa-gallery:hover img:nth-child(3){
+    animation:hoverSlider 6s infinite 3s;
+}
+
+@keyframes hoverSlider{
+    0%{opacity:0;}
+    10%{opacity:1;}
+    50%{opacity:1;}
+    60%{opacity:0;}
+    100%{opacity:0;}
+}
 
 .card-content{
     padding:24px;
@@ -253,50 +257,25 @@ header{
     font-size:15px;
 }
 
-.features{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:18px;
-    margin-top:50px;
-}
-
-.feature{
-    background:var(--card);
-    border-radius:22px;
-    overflow:hidden;
-    text-align:center;
-}
-
-.feature-slider{
+.spa-gallery{
     position:relative;
-    height:190px;
+    height:380px;
+    border-radius:28px;
     overflow:hidden;
+    background:#101510;
 }
 
-.feature-slider img{
+.spa-gallery img{
     position:absolute;
     inset:0;
     height:100%;
     object-fit:cover;
     opacity:0;
-    animation:slideShow 9s infinite;
+    transition:opacity .45s ease;
 }
 
-.feature-slider img:nth-child(1){animation-delay:0s;}
-.feature-slider img:nth-child(2){animation-delay:3s;}
-.feature-slider img:nth-child(3){animation-delay:6s;}
-
-.feature span{
-    display:block;
-    padding:18px;
-    color:white;
-}
-
-.wide-block{
-    background:var(--green);
-    border-radius:30px;
-    padding:48px;
-    margin-top:40px;
+.spa-gallery img:first-child{
+    opacity:1;
 }
 
 footer{
@@ -316,7 +295,7 @@ footer{
     }
 
     .hero-text h1{
-        font-size:58px;
+        font-size:54px;
     }
 
     .hero-text h2{
@@ -324,8 +303,7 @@ footer{
     }
 
     .grid-2,
-    .cards,
-    .features{
+    .cards{
         grid-template-columns:1fr;
     }
 
@@ -337,12 +315,9 @@ footer{
         font-size:48px;
     }
 
-    .slider{
+    .image-box,
+    .spa-gallery{
         height:260px;
-    }
-
-    .wide-block{
-        padding:28px;
     }
 }
 </style>
@@ -360,8 +335,6 @@ footer{
             <a href="#houses">Проживання</a>
             <a href="#spa">SPA & Aqua</a>
             <a href="#restaurant">Ресторан</a>
-            <a href="#corporate">Корпоративи</a>
-            <a href="#zones">Зональність</a>
         </nav>
     </div>
 </header>
@@ -425,10 +398,8 @@ footer{
             </div>
         </div>
 
-        <div class="slider">
+        <div class="image-box">
             <img src="./images/Vsia_Terytoria.jpg" alt="Територія RIVERROS">
-            <img src="./images/Atmosphera_1.png" alt="Атмосфера RIVERROS">
-            <img src="./images/Atmosphera_2.png" alt="Атмосфера RIVERROS">
         </div>
 
     </div>
@@ -437,10 +408,8 @@ footer{
 <section class="section" id="territory">
     <div class="container grid-2">
 
-        <div class="slider">
-            <img src="./images/Rive.jpg" alt="Річка Рось">
-            <img src="./images/Rive_2.jpg" alt="Берегова лінія">
-            <img src="./images/Beach.jpg" alt="Пляж">
+        <div class="image-box">
+            <img src="./images/Beach.jpg" alt="Пляж RIVERROS">
         </div>
 
         <div>
@@ -466,10 +435,10 @@ footer{
         <div class="cards">
 
             <article class="card">
-                <div class="card-slider">
-                    <img src="./images/Kotedzi_1.png" alt="Котеджі RIVERROS">
-                    <img src="./images/Kotedzi_2.png" alt="Котеджі RIVERROS">
-                    <img src="./images/Kotedzi_3.png" alt="Котеджі RIVERROS">
+                <div class="hover-gallery">
+                    <img src="./images/Kotedzi_1.png" alt="Приватні котеджі">
+                    <img src="./images/Kotedzi_2.png" alt="Приватні котеджі">
+                    <img src="./images/Kotedzi_3.png" alt="Приватні котеджі">
                 </div>
 
                 <div class="card-content">
@@ -481,31 +450,31 @@ footer{
             </article>
 
             <article class="card">
-                <div class="card-slider">
-                    <img src="./images/House.jpg" alt="Котедж">
-                    <img src="./images/House_2.jpg" alt="Котедж">
-                    <img src="./images/House_3.jpg" alt="Котедж">
+                <div class="hover-gallery">
+                    <img src="./images/Korpus_1.png" alt="Центральний корпус">
+                    <img src="./images/Korpus_2.png" alt="Центральний корпус">
+                    <img src="./images/Korpus_3.png" alt="Центральний корпус">
                 </div>
 
                 <div class="card-content">
-                    <h3>Затишок</h3>
+                    <h3>Центральний корпус</h3>
                     <p>
-                        Простір для спокою, приватності та комфортного відпочинку серед природи.
+                        Сучасний простір з басейном, SPA-зоною, рестораном, лобі-баром та зонами для відпочинку.
                     </p>
                 </div>
             </article>
 
             <article class="card">
-                <div class="card-slider">
-                    <img src="./images/family.jpg" alt="Сімейний відпочинок">
-                    <img src="./images/family_2.png" alt="Сімейний відпочинок">
-                    <img src="./images/Atmosphera_3.png" alt="Атмосфера">
+                <div class="hover-gallery">
+                    <img src="./images/Atmosphera_1.png" alt="Атмосфера RIVERROS">
+                    <img src="./images/Atmosphera_2.png" alt="Атмосфера RIVERROS">
+                    <img src="./images/Atmosphera_3.png" alt="Атмосфера RIVERROS">
                 </div>
 
                 <div class="card-content">
-                    <h3>Сімейний відпочинок</h3>
+                    <h3>Атмосфера</h3>
                     <p>
-                        Формат, де ніхто не потурбує ваш спокій, а природа створить правильний ритм відпочинку.
+                        Тиша лісу, свіже повітря, приватність і простір для відновлення у будь-яку пору року.
                     </p>
                 </div>
             </article>
@@ -518,7 +487,7 @@ footer{
 <section class="section" id="spa">
     <div class="container grid-2">
 
-        <div class="slider">
+        <div class="spa-gallery">
             <img src="./images/Indoor_SPA.png" alt="SPA RIVERROS">
             <img src="./images/Spa_1.jpg" alt="SPA RIVERROS">
             <img src="./images/Spa_2.png" alt="SPA RIVERROS">
@@ -554,89 +523,8 @@ footer{
             </div>
         </div>
 
-        <div class="slider">
-            <img src="./images/Korpus_1.png" alt="Центральний корпус">
+        <div class="image-box">
             <img src="./images/Korpus_2.png" alt="Ресторан RIVERROS">
-            <img src="./images/Korpus_3.png" alt="Ресторан RIVERROS">
-        </div>
-
-    </div>
-</section>
-
-<section class="section" id="corporate">
-    <div class="container">
-
-        <h2 class="section-title">Корпоративи</h2>
-
-        <div class="wide-block">
-            <div class="text">
-                <p>
-                    Центральний корпус та відокремлені двоповерхові корпуси готові прийняти корпоративних клієнтів
-                    для проведення тімбілдінгів, тренінгів, воркшопів, практичних занять та стратегічних сесій.
-                </p>
-
-                <p>
-                    Також RIVERROS’ стане місцем для сімейних урочистостей:
-                    весіль, ювілеїв, хрестин та днів народження.
-                </p>
-            </div>
-        </div>
-
-    </div>
-</section>
-
-<section class="section" id="zones">
-    <div class="container">
-
-        <h2 class="section-title">Зональність</h2>
-
-        <div class="text">
-            <p>
-                Парк-отель має зони комфорту, щоб всі відвідувачі почували себе зручно.
-                Гості можуть відвідати спортмайданчик, фітнес, теніс, парк гойдалок,
-                кіно просто неба, мангал-зону, сучасні дитячі та розважальні майданчики,
-                криті та відкриті басейни, SPA-зону та багато іншого.
-            </p>
-        </div>
-
-        <div class="features">
-
-            <div class="feature">
-                <div class="feature-slider">
-                    <img src="./images/Beach.jpg" alt="Пляж">
-                    <img src="./images/Beach_2.jpg" alt="Пляж">
-                    <img src="./images/Rive_3.jpg" alt="Річка">
-                </div>
-                <span>Пляж та берегова лінія</span>
-            </div>
-
-            <div class="feature">
-                <div class="feature-slider">
-                    <img src="./images/Kid.png" alt="Дитячі майданчики">
-                    <img src="./images/Dit_maydachik.png" alt="Дитячі майданчики">
-                    <img src="./images/Vidkrytka.png" alt="Дитячі майданчики">
-                </div>
-                <span>Дитячі майданчики</span>
-            </div>
-
-            <div class="feature">
-                <div class="feature-slider">
-                    <img src="./images/Rive.jpg" alt="Прогулянкові зони">
-                    <img src="./images/Rive_4.jpg" alt="Прогулянкові зони">
-                    <img src="./images/Rive_5.jpg" alt="Прогулянкові зони">
-                </div>
-                <span>Прогулянкові зони</span>
-            </div>
-
-            <div class="feature">
-                <div class="feature-slider">
-                    <img src="./images/Car.jpg" alt="Зручний доїзд">
-                    <img src="./images/Atmosphera_1.png" alt="Зручний доїзд">
-                    <img src="./images/Atmosphera_2.png" alt="Зручний доїзд">
-                </div>
-                <span>Зручний доїзд</span>
-            </div>
-
         </div>
 
     </div>
